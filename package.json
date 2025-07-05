@@ -13,6 +13,7 @@
     "check-circular-deps": "madge --circular --extensions ts ./lib",
     "format": "biome format . --write",
     "format:check": "biome format .",
+    "format:file": "biome format --write",
     "generate:manual-edits-docs": "tsx scripts/generate-manual-edits-docs.ts",
     "generate:component-types": "tsx scripts/generate-component-types.ts",
     "generate:readme-docs": "tsx scripts/generate-readme-docs.ts"
