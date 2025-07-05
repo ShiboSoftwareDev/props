@@ -12,6 +12,7 @@ export interface BoardProps extends Omit<SubcircuitGroupProps, "subcircuit"> {
   outline?: Point[]
   outlineOffsetX?: number | string
   outlineOffsetY?: number | string
+  centerOffset?: Point
   material?: "fr4" | "fr1"
 }
 
@@ -21,6 +22,7 @@ export const boardProps = subcircuitGroupProps.extend({
   outline: z.array(point).optional(),
   outlineOffsetX: distance.optional(),
   outlineOffsetY: distance.optional(),
+  centerOffset: point.optional(),
   material: z.enum(["fr4", "fr1"]).default("fr4"),
 })
 
