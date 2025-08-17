@@ -177,3 +177,25 @@ test("should work with generic type parameter for pin labels", () => {
     SIG2: [".LED1 > .anode", ".C1 > .pin1"],
   })
 })
+
+test("should parse pinAttributes providesPower and powerType", () => {
+  const rawProps: ChipProps = {
+    name: "chip",
+    pinAttributes: {
+      p1: { providesPower: true, powerType: "dc" },
+      p2: { powerType: "ac" },
+      p3: { providesPower: true },
+      p4: { providesPower: false },
+      p5: { requiresPower: true },
+    },
+  }
+
+  const parsedProps = chipProps.parse(rawProps)
+  expect(parsedProps.pinAttributes).toEqual({
+    p1: { providesPower: true, powerType: "dc" },
+    p2: { powerType: "ac" },
+    p3: { providesPower: true },
+    p4: { providesPower: false },
+    p5: { requiresPower: true },
+  })
+})

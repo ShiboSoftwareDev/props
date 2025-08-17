@@ -742,6 +742,7 @@ export interface PillWithRectPadPlatedHoleProps
 
 export interface PinAttributeMap {
   providesPower?: boolean
+  powerType?: "ac" | "dc"
   requiresPower?: boolean
   providesGround?: boolean
   requiresGround?: boolean

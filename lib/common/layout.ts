@@ -100,6 +100,7 @@ expectTypesMatch<SupplierProps, z.input<typeof supplierProps>>(true)
 
 export interface PinAttributeMap {
   providesPower?: boolean
+  powerType?: "ac" | "dc"
   requiresPower?: boolean
   providesGround?: boolean
   requiresGround?: boolean
@@ -109,6 +110,7 @@ export interface PinAttributeMap {
 
 export const pinAttributeMap = z.object({
   providesPower: z.boolean().optional(),
+  powerType: z.enum(["ac", "dc"]).optional(),
   requiresPower: z.boolean().optional(),
   providesGround: z.boolean().optional(),
   requiresGround: z.boolean().optional(),
