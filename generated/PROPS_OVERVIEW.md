@@ -18,6 +18,22 @@ const validatedProps = chipProps.parse(unknownProps)
 ## Available Props
 
 ```ts
+export interface AmmeterDisplayOptions {
+  label?: string
+  center?: number
+  offsetDivs?: number
+  unitsPerDiv?: number
+}
+
+
+export interface AmmeterProps<PinLabel extends string = string>
+  extends CommonComponentProps<PinLabel> {
+  connections: Connections<AmmeterPinLabels>
+  color?: string
+  display?: AmmeterDisplayOptions
+}
+
+
 export interface AnalogSimulationProps {
   simulationType?: "spice_transient_analysis"
   duration?: number | string

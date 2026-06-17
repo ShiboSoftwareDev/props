@@ -865,6 +865,37 @@ export const url = z.preprocess((value) => {
 
 ## Available Component Types
 
+### ammeter
+
+```typescript
+export interface AmmeterDisplayOptions {
+  label?: string
+  center?: number
+  offsetDivs?: number
+  unitsPerDiv?: number
+}
+export interface AmmeterProps<PinLabel extends string = string>
+  extends CommonComponentProps<PinLabel> {
+  connections: Connections<AmmeterPinLabels>
+  color?: string
+  display?: AmmeterDisplayOptions
+}
+export const ammeterDisplayOptions = z.object({
+  label: z.string().optional(),
+  center: z.number().optional(),
+  offsetDivs: z.number().optional(),
+  unitsPerDiv: z.number().optional(),
+})
+export const ammeterProps = commonComponentProps.extend({
+  connections: createConnectionsProp(ammeterPinLabels).refine(
+    hasAmmeterConnectionPair,
+    "Ammeter connections must include either pos/neg or pin1/pin2",
+  ),
+  color: z.string().optional(),
+  display: ammeterDisplayOptions.optional(),
+})
+```
+
 ### analogsimulation
 
 ```typescript
