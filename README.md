@@ -22,6 +22,7 @@ resistorProps.parse({ resistance: "10k" } as ResistorPropsInput);
 
 | Component                      | Props Interface                                                                            |
 | ------------------------------ | ------------------------------------------------------------------------------------------ |
+| `<ammeter />`                  | [`AmmeterProps`](#ammeterprops-ammeter)                                                    |
 | `<analogsimulation />`         | [`AnalogSimulationProps`](#analogsimulationprops-analogsimulation)                         |
 | `<autoroutingphase />`         | [`AutoroutingPhaseProps`](#autoroutingphaseprops-autoroutingphase)                         |
 | `<battery />`                  | [`BatteryProps`](#batteryprops-battery)                                                    |
@@ -200,6 +201,20 @@ export interface SubcircuitGroupProps extends BaseGroupProps {
 ```
 
 [Source](https://github.com/tscircuit/props/blob/main/lib/components/group.ts)
+
+### AmmeterProps `<ammeter />`
+
+```ts
+export interface AmmeterProps<
+  PinLabel extends string = string,
+> extends CommonComponentProps<PinLabel> {
+  connections: Connections<AmmeterPinLabels>;
+  color?: string;
+  display?: AmmeterDisplayOptions;
+}
+```
+
+[Source](https://github.com/tscircuit/props/blob/main/lib/components/ammeter.ts)
 
 ### AnalogSimulationProps `<analogsimulation />`
 
