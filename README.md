@@ -210,7 +210,10 @@ export interface AmmeterProps<
 > extends CommonComponentProps<PinLabel> {
   connections: Connections<AmmeterPinLabels>;
   color?: string;
-  display?: AmmeterDisplayOptions;
+  graphDisplayName?: string;
+  graphCenter?: number;
+  graphOffsetDivs?: number;
+  graphUnitsPerDiv?: number;
 }
 ```
 
@@ -1958,7 +1961,10 @@ export interface VoltageProbeProps extends Omit<CommonComponentProps, "name"> {
   connectsTo: string;
   referenceTo?: string;
   color?: string;
-  display?: VoltageProbeDisplayOptions;
+  graphDisplayName?: string;
+  graphCenter?: number;
+  graphOffsetDivs?: number;
+  graphUnitsPerDiv?: number;
 }
 ```
 
