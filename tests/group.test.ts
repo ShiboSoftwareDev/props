@@ -223,3 +223,12 @@ test("should parse schMaxTraceDistance", () => {
   const parsed = subcircuitGroupProps.parse(raw)
   expect(parsed.schMaxTraceDistance).toBe(10)
 })
+
+test("should parse exposedNets", () => {
+  const raw: SubcircuitGroupProps = {
+    name: "g",
+    exposedNets: ["GND"],
+  }
+  const parsed = subcircuitGroupProps.parse(raw)
+  expect(parsed.exposedNets).toEqual(["GND"])
+})

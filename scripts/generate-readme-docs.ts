@@ -207,6 +207,7 @@ function generateInterfaceDefinitions(
   pcbRouteCache?: PcbRouteCache
 
   autorouter?: AutorouterProp
+  exposedNets?: string[]
 
   /**
    * If true, we'll automatically layout the schematic for this group. Must be
