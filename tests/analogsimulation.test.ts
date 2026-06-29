@@ -72,3 +72,14 @@ test("analog simulation accepts spice options", () => {
     vntol: "1u",
   })
 })
+
+test("analog simulation accepts independent graph axes", () => {
+  const raw: AnalogSimulationProps = {
+    graphIndependentAxes: true,
+  }
+
+  expectTypeOf(raw).toMatchTypeOf<z.input<typeof analogSimulationProps>>()
+
+  const parsed = analogSimulationProps.parse(raw)
+  expect(parsed.graphIndependentAxes).toBe(true)
+})
