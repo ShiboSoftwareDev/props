@@ -23,6 +23,9 @@ export interface AmmeterProps<PinLabel extends string = string>
   connections: Connections<AmmeterPinLabels>
   color?: string
   graphDisplayName?: string
+  graphCenter?: number
+  graphVerticalOffset?: number | string
+  graphCurrentPerDiv?: number | string
 }
 
 
@@ -2298,6 +2301,9 @@ export interface VoltageProbeProps extends Omit<CommonComponentProps, "name"> {
   referenceTo?: string
   color?: string
   graphDisplayName?: string
+  graphCenter?: number
+  graphVerticalOffset?: number | string
+  graphVoltagePerDiv?: number | string
 }
 
 

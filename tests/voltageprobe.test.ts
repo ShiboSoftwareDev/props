@@ -59,6 +59,19 @@ test("should parse voltageprobe with name, reference, color, and graph display n
   expect(parsed.graphDisplayName).toBe("VOUT")
 })
 
+test("should parse voltageprobe graph scaling props", () => {
+  const raw: VoltageProbeProps = {
+    connectsTo: "net.VOUT",
+    graphCenter: 1.65,
+    graphVerticalOffset: "500mV",
+    graphVoltagePerDiv: "1V",
+  }
+  const parsed = voltageProbeProps.parse(raw)
+  expect(parsed.graphCenter).toBe(1.65)
+  expect(parsed.graphVerticalOffset).toBe("500mV")
+  expect(parsed.graphVoltagePerDiv).toBe("1V")
+})
+
 test("should not parse voltageprobe with array connectsTo", () => {
   const raw: any = {
     connectsTo: ["C1.pin1"],

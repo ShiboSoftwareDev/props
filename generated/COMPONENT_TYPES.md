@@ -880,6 +880,9 @@ export interface AmmeterProps<PinLabel extends string = string>
   connections: Connections<AmmeterPinLabels>
   color?: string
   graphDisplayName?: string
+  graphCenter?: number
+  graphVerticalOffset?: number | string
+  graphCurrentPerDiv?: number | string
 }
 export const ammeterProps = commonComponentProps.extend({
   connections: createConnectionsProp(ammeterPinLabels).refine(
@@ -888,6 +891,9 @@ export const ammeterProps = commonComponentProps.extend({
   ),
   color: z.string().optional(),
   graphDisplayName: z.string().optional(),
+  graphCenter: z.number().optional(),
+  graphVerticalOffset: z.number().or(z.string()).optional(),
+  graphCurrentPerDiv: z.number().or(z.string()).optional(),
 })
 ```
 
@@ -4214,6 +4220,9 @@ export interface VoltageProbeProps extends Omit<CommonComponentProps, "name"> {
   referenceTo?: string
   color?: string
   graphDisplayName?: string
+  graphCenter?: number
+  graphVerticalOffset?: number | string
+  graphVoltagePerDiv?: number | string
 }
 export const voltageProbeProps = commonComponentProps
   .omit({ name: true })
@@ -4223,6 +4232,9 @@ export const voltageProbeProps = commonComponentProps
     referenceTo: z.string().optional(),
     color: z.string().optional(),
     graphDisplayName: z.string().optional(),
+    graphCenter: z.number().optional(),
+    graphVerticalOffset: z.number().or(z.string()).optional(),
+    graphVoltagePerDiv: z.number().or(z.string()).optional(),
   })
 ```
 

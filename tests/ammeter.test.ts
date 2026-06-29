@@ -51,6 +51,24 @@ test("should parse ammeter with color and graph display name", () => {
   expect(parsed.graphDisplayName).toBe("I_LOAD")
 })
 
+test("should parse ammeter graph scaling props", () => {
+  const raw: AmmeterProps = {
+    name: "A4",
+    connections: {
+      pos: "net.IN",
+      neg: "net.OUT",
+    },
+    graphCenter: 0,
+    graphVerticalOffset: "1mA",
+    graphCurrentPerDiv: "500uA",
+  }
+
+  const parsed = ammeterProps.parse(raw)
+  expect(parsed.graphCenter).toBe(0)
+  expect(parsed.graphVerticalOffset).toBe("1mA")
+  expect(parsed.graphCurrentPerDiv).toBe("500uA")
+})
+
 test("should reject missing ammeter connections", () => {
   expect(() => {
     ammeterProps.parse({

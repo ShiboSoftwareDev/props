@@ -11,6 +11,9 @@ export interface VoltageProbeProps extends Omit<CommonComponentProps, "name"> {
   referenceTo?: string
   color?: string
   graphDisplayName?: string
+  graphCenter?: number
+  graphVerticalOffset?: number | string
+  graphVoltagePerDiv?: number | string
 }
 
 export const voltageProbeProps = commonComponentProps
@@ -21,6 +24,9 @@ export const voltageProbeProps = commonComponentProps
     referenceTo: z.string().optional(),
     color: z.string().optional(),
     graphDisplayName: z.string().optional(),
+    graphCenter: z.number().optional(),
+    graphVerticalOffset: z.number().or(z.string()).optional(),
+    graphVoltagePerDiv: z.number().or(z.string()).optional(),
   })
 
 expectTypesMatch<VoltageProbeProps, z.input<typeof voltageProbeProps>>(true)
